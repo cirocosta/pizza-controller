@@ -1,0 +1,15 @@
+#! where to find app1 source
+---
+apiVersion: kbld.k14s.io/v1alpha1
+kind: Sources
+sources:
+- image: pizza-controller
+  path: .
+
+#! where to push app1 image
+---
+apiVersion: kbld.k14s.io/v1alpha1
+kind: ImageDestinations
+destinations:
+- image: pizza-controller
+  newImage: docker.io/cirocosta/pizza-controller

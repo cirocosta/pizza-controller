@@ -1,0 +1,76 @@
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  creationTimestamp: null
+  name: pizza-controller
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ops.tips
+  resources:
+  - pizzacustomers
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ops.tips
+  resources:
+  - pizzacustomers/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - ops.tips
+  resources:
+  - pizzaorders
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ops.tips
+  resources:
+  - pizzaorders/status
+  verbs:
+  - get
+  - patch
+  - update
+- apiGroups:
+  - ops.tips
+  resources:
+  - pizzastores
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - ops.tips
+  resources:
+  - pizzastores/status
+  verbs:
+  - get
+  - patch
+  - update

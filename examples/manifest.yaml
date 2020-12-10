@@ -1,0 +1,40 @@
+kind: Secret
+apiVersion: v1
+metadata:
+  name: credit-card
+stringData:
+  number: "1111111111111111"
+  expiration: "01/99"
+  securityCode: "111"
+  cardType: "visa"
+  zip: "M9L14J"
+---
+
+kind: PizzaCustomer
+apiVersion: ops.tips/v1alpha1
+metadata:
+  name: customer
+spec:
+  firstName: Bob
+  lastName: Obama
+  email: bob@obama.gov
+  phone: "+14168229881"
+  streetNumber: "66"
+  streetName: Fort York Blvd
+  city: Toronto
+  state: "ON"
+  zip: M5S4A6
+  creditCardSecretRef: {name: credit-card}
+---
+
+kind: PizzaOrder
+apiVersion: ops.tips/v1alpha1
+metadata:
+  name: order
+spec:
+  yeahSurePlaceTheOrder: true
+  storeRef: {name: "store-10391"}
+  customerRef: {name: "customer"}
+  products:
+    - id: "10SCREEN"
+      quantity: 1

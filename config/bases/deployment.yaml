@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pizza-controller
+  namespace: opstips-system
+spec:
+  selector:
+    matchLabels:
+      app: pizza-controller
+  replicas: 1
+  revisionHistoryLimit: 0
+  template:
+    metadata:
+      labels:
+        app: pizza-controller
+    spec:
+      serviceAccount: pizza-controller
+      containers:
+        - name: pizza-controller
+          image: pizza-controller
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            runAsNonRoot: true
+            capabilities:
+              drop:
+                - all
+          resources:
+            requests:
+              cpu: 200m
+              memory: 200Mi
