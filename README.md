@@ -113,6 +113,9 @@ here's what's missing:
 - being more flexible with non-canadian folks (it's currently hardcoded for
   Canada, but could easily be changed)
 
+at the moment I got my pizza .. development finished :sweat_smile: maybe you'll
+carry it forward?
+
 
 ## Installation
 
