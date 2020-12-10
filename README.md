@@ -16,10 +16,11 @@ kind: Secret
 apiVersion: v1
 metadata:
   name: credit-card
-spec:
+stringData:
   number: 123343132314232
-  expiration: 12-02-2020
-  cc: 123
+  expiration: 12/02
+  securityCode: 123
+  zip: m5d0l2
 ```
 
 then, create a `PizzaCustomer`, the representation of _you_, the customer:
@@ -34,12 +35,12 @@ spec:
   firstName: barack
   lastName: obama
   email: obama@gov.gov
-  phone: ""
-  streetNumber:
-  streetName:
-  city:
-  state:
-  zip:
+  phone: "31241323"
+  streetNumber: "20"
+  streetName: King St
+  city: Toronto
+  state: "ON"
+  zip: m5lz8j
 ``` 
 
 With the `PizzaCustomer` object created, we can see what's the closest store available
@@ -72,7 +73,7 @@ spec:
       size: 2 Litre
 ```
 
-Knowing what's available for us, we can place the order:
+Knowing what's available to us, we can place the order:
 
 ```yaml
 kind: PizzaOrder
@@ -133,8 +134,12 @@ kubectl apply -f ./config/release.yaml
 
 ## thanks
 
+The API part was _heavily_ inspired by these two projects:
+
 - https://github.com/ggrammar/pizzapi
 - https://github.com/harrybrwn/apizza
+
+Thank you!
 
 
 ## LICENSE
