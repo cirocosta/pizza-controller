@@ -31,17 +31,9 @@ status:
 
 So ultimately, it's a state machine like so:
 
-```mermaid
-stateDiagram-v2
-  [*] --> Ready
-  [*] --> Errored
-  Ready --> Errored
-  Ready --> Ready
-  Errored --> Ready
-  Errored --> Errored
-```
+<img width="300" src="https://user-images.githubusercontent.com/3574444/101841263-98dd7600-3b13-11eb-9098-b8df77e3bc02.png">
 
-Where:
+where:
 
 - `Ready` implies that stores have been found and orders for that customer can be placed
 - `Errored` implies something went wrong
@@ -87,3 +79,7 @@ spec:
     creditCardSecretRef:
       name: credit-card
 ```
+
+under the hood, the reconciler is working on the following state machine:
+
+<img width="300" src="https://user-images.githubusercontent.com/3574444/101841190-777c8a00-3b13-11eb-8c87-ea23f4c6a984.png">
